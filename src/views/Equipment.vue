@@ -87,7 +87,7 @@ export default {
     },
     timeer() {
       if (!this.data.stopped) return false;
-    //  console.log(this.data.stopped);
+      //  console.log(this.data.stopped);
       let time = this.data.stopped.split("-");
       let h = time[0].replace(".", ":");
       let d = time[1].split(".");
@@ -208,6 +208,23 @@ export default {
     height: 48px;
     font-size: 48px;
     width: 48px;
+  }
+}
+
+@media (max-height: 850px) {
+  .list-nums .n {
+    font-size: 5rem;
+  }
+  .list-nums {
+    font-size: 2rem;
+  }
+}
+@media (max-width: 1200px) {
+  .list-nums .n {
+    font-size: 5rem;
+  }
+  .list-nums {
+    font-size: 1.8rem;
   }
 }
 </style>
