@@ -64,7 +64,7 @@ export default {
   created() {
     this.$store.dispatch("getData");
     setInterval(() => {
-      if (!this.$store.state.conect) return;
+     // if (!this.$store.state.conect) return;
       this.$store.dispatch("getData");
     }, 10000);
   },

@@ -18,12 +18,12 @@ export default new Vuex.Store({
     getData(state, payload) {
       state.data = payload;
     },
-    setId(state, payload){
+    setId(state, payload) {
       state.id = payload;
     },
   },
   actions: {
- 
+
     getData({
       commit,
       state
@@ -66,6 +66,8 @@ export default new Vuex.Store({
             let jsonObj = parser.parse(xmlData, options);
             //  console.log(jsonObj.data.equipment);
             commit('getData', jsonObj.data.equipment);
+          } else {
+            state.conect = false;
           }
 
 
