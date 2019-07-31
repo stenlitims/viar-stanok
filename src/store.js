@@ -1,27 +1,34 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import createPersistedState from 'vuex-persistedstate'
 import parser from 'fast-xml-parser'
 import he from 'he'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
+  plugins: [createPersistedState()],
   state: {
     data: [],
-    conect: true
+    conect: true,
+    id: null
   },
   mutations: {
     getData(state, payload) {
       state.data = payload;
     },
+    setId(state, payload){
+      state.id = payload;
+    },
   },
   actions: {
+ 
     getData({
       commit,
       state
     }) {
-      axios.get('/data.xml?v='+Date.now())
+      axios.get('/data.xml?v=' + Date.now())
         // axios.get('http://test.synergy.com.ua/assets/data.xml')
         .then((response) => {
 

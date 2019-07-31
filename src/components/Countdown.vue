@@ -2,11 +2,11 @@
   <ul class="vuejs-countdown">
     <li v-if="days > 0">
       <p class="digit">{{ days | twoDigits }}</p>
-      <p class="text">{{ declension(days, ['день', 'дня', 'днів'])  }}</p>
+      <p class="text">{{ declension(days, ['день', 'дня', 'днів']) }}</p>
     </li>
     <li>
       <p class="digit">{{ hours | twoDigits }}</p>
-      <p class="text">{{  declension(hours, ['година', 'години', 'годин']) }}</p>
+      <p class="text">{{ declension(hours, ['година', 'години', 'годин']) }}</p>
     </li>
     <li>
       <p class="digit">{{ minutes | twoDigits }}</p>
@@ -122,7 +122,7 @@ export default {
   list-style: none;
 }
 .vuejs-countdown li {
- // display: inline-block;
+  // display: inline-block;
   margin: 0 20px;
   text-align: center;
   position: relative;
@@ -157,5 +157,25 @@ export default {
   text-transform: uppercase;
   margin-bottom: 0;
   font-size: 20px;
+}
+
+@media (min-height: 1300px) {
+  .vuejs-countdown {
+    width: 80vw;
+    text-align: center;
+    flex-wrap: wrap;
+    li {
+      width: 50%;
+      margin: 0;
+      margin-bottom: 70px;
+    }
+  }
+
+  .vuejs-countdown .digit {
+    font-size: 100px;
+  }
+  .vuejs-countdown .text {
+    font-size: 30px;
+  }
 }
 </style>
