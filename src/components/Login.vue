@@ -50,7 +50,7 @@ export default {
   methods: {
     submit() {
       if (this.$refs.form.validate()) {
-        if (this.login == "admin") {
+        if (this.login == this.$store.state.pass) {
           this.$store.commit("setId", this.login);
           return;
         }

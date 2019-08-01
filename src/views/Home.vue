@@ -1,8 +1,8 @@
 <template>
   <div>
     <Login v-if="$store.state.id == null"></Login>
-    <Equipment v-if="$store.state.id != 'admin' && $store.state.id != null"></Equipment>
-    <v-container class="main-page" fluid fill-height v-if="$store.state.id == 'admin'">
+    <Equipment v-if="$store.state.id != $store.state.pass && $store.state.id != null"></Equipment>
+    <v-container class="main-page" fluid fill-height v-if="$store.state.id == $store.state.pass">
       <v-layout justify-center>
         <v-flex xs12 sm12 md12 xl12>
           <v-toolbar color="primary" align-center justify-center dark>
@@ -95,6 +95,7 @@
 <script>
 import Login from "@/components/Login.vue";
 import Equipment from "@/components/Equipment.vue";
+import { setTimeout } from "timers";
 export default {
   components: {
     Login,
@@ -132,6 +133,18 @@ export default {
       let oneP = norma_currently / 100;
       return current_output / oneP;
     }
+  },
+  mounted() {
+    setTimeout(() => {
+      let data = this.$store.state.data.filter(o => {
+        return o.id == this.$store.state.id;
+      });
+    //  console.log(data);
+      if (!data.length && this.$store.state.pass != this.$store.state.id) {
+     //   console.log(234);
+        this.$store.commit("setId", null);
+      }
+    }, 2000);
   },
   created() {
     this.$store.dispatch("getData");
@@ -213,7 +226,7 @@ export default {
   }
 
   .current_output {
-    overflow: hidden;
+   // overflow: hidden;
     .bg {
       background: red;
       left: 0;
@@ -304,7 +317,7 @@ body .theme--light.v-application {
 }
 
 @media (max-width: 700px) {
-  .grafic-list .item td{
+  .grafic-list .item td {
     padding-left: 10px;
     padding-right: 10px;
   }

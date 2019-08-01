@@ -12,23 +12,49 @@ export default new Vuex.Store({
   state: {
     data: [],
     conect: true,
-    id: null
+    id: null,
+    pass: 'BIGboss',
+    path: 'web_tablo/034.xml',
+
   },
   mutations: {
     getData(state, payload) {
       state.data = payload;
     },
+    getSettingss(state, payload) {
+      if (payload.pass) {
+        state.pass = payload.pass;
+      }
+      if (payload.path) {
+        state.path = payload.path;
+      }
+      //  console.log(payload);
+    },
     setId(state, payload) {
       state.id = payload;
-    },
+    }
   },
   actions: {
+
+    getSettingss({
+      commit,
+      state
+    }) {
+      axios.get('/settings.json?v=' + Date.now())
+        .then((response) => {
+          commit('getSettingss', response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+    },
 
     getData({
       commit,
       state
     }) {
-      axios.get('/data.xml?v=' + Date.now())
+      axios.get(state.path + '?v=' + Date.now())
         // axios.get('http://test.synergy.com.ua/assets/data.xml')
         .then((response) => {
 

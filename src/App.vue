@@ -18,6 +18,9 @@ export default {
     conect() {
       this.$store.dispatch("getData");
     }
+  },
+  created(){
+    this.$store.dispatch("getSettingss");
   }
 };
 </script>
