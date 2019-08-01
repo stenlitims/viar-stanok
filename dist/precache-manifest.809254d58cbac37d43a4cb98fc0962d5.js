@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "47ca272a9c27ab561137",
-    "url": "/css/app.d7696d03.css"
+    "revision": "4010707c15adcb18e0bf",
+    "url": "/css/app.fe4cad90.css"
   },
   {
-    "revision": "47ca272a9c27ab561137",
-    "url": "/js/app.1c9ea552.js"
+    "revision": "4010707c15adcb18e0bf",
+    "url": "/js/app.f648632f.js"
   },
   {
     "revision": "bd2049a2c10f25fd61bd",
     "url": "/js/chunk-2d0a49ca.3b72d5d6.js"
   },
   {
-    "revision": "145fe997d374ada93ce6",
+    "revision": "d2978e8ec30924431bb1",
     "url": "/css/chunk-vendors.396a8939.css"
   },
   {
-    "revision": "145fe997d374ada93ce6",
-    "url": "/js/chunk-vendors.8704cf31.js"
+    "revision": "d2978e8ec30924431bb1",
+    "url": "/js/chunk-vendors.c03a1a16.js"
   },
   {
     "revision": "0509ab09c1b0d2200a4135803c91d6ce",
@@ -36,12 +36,16 @@ self.__precacheManifest = [
     "url": "/fonts/MaterialIcons-Regular.da4ea5cd.ttf"
   },
   {
-    "revision": "19e0aa987f52839cfb0c218e2c2e9694",
+    "revision": "11a5a46fec0d44e9ed3b6988c25100b4",
     "url": "/index.html"
   },
   {
+    "revision": "c7e65e0499f3f6af3b158391f078d0b1",
+    "url": "/settings.json"
+  },
+  {
     "revision": "78ce79e725e094a1b5b61737e95ca744",
-    "url": "/data.xml"
+    "url": "/web_tablo/034.xml"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
