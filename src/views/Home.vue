@@ -24,33 +24,46 @@
           </v-toolbar>
 
           <div class="grafic-list" v-if="typeList == 'grafic'">
-            <router-link
-              class="item"
-              v-for="(item, i) in data"
-              :key="i"
-              :to="'equipment/'+item.id"
-              :class="{'stop': item.stopped != ''}"
-            >
-              <div class="name">
-                <v-icon>arrow_forward</v-icon>
-                {{item.name}}
-                <small>({{item.article}})</small>
-              </div>
-              <div class="info-r">
-                <div class="norma_currently">
-                  <div class="bg"></div>
-                  <div class="t">{{item.norma_currently}}</div>
-                </div>
-                <div class="current_output">
-                  <div
-                    class="bg"
-                    :style="{'height': proc(item) + '%'}"
-                    :class="{'green': proc(item) >= 100}"
-                  ></div>
-                  <div class="t">{{item.current_output}}</div>
-                </div>
-              </div>
-            </router-link>
+            <table>
+              <tr>
+                <th>Назва</th>
+                <th>Норма</th>
+                <th>Виконано</th>
+              </tr>
+              <tr
+                class="item"
+                v-for="(item, i) in data"
+                :key="i"
+                :class="{'stop': item.stopped != ''}"
+              >
+                <td>
+                  <router-link :to="'equipment/'+item.id">
+                    <div class="name">
+                      <v-icon>arrow_forward</v-icon>
+                      {{item.name}}
+                      <small>({{item.article}})</small>
+                    </div>
+                  </router-link>
+                </td>
+
+                <td>
+                  <div class="norma_currently">
+                    <div class="bg"></div>
+                    <div class="t">{{item.norma_currently}}</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="current_output">
+                    <div
+                      class="bg"
+                      :style="{'width': proc(item) + '%'}"
+                      :class="{'green': proc(item) >= 100}"
+                    ></div>
+                    <div class="t">{{item.current_output}}</div>
+                  </div>
+                </td>
+              </tr>
+            </table>
           </div>
 
           <v-list class="d-list" v-else>
@@ -108,8 +121,16 @@ export default {
   },
   methods: {
     proc(item) {
-      let oneP = item.norma_currently / 100;
-      return item.current_output / oneP;
+      let norma_currently = item.norma_currently;
+      if (typeof norma_currently == "string") {
+        norma_currently = norma_currently.replace(",", ".");
+      }
+      let current_output = item.current_output;
+      if (typeof current_output == "string") {
+        current_output = current_output.replace(",", ".");
+      }
+      let oneP = norma_currently / 100;
+      return current_output / oneP;
     }
   },
   created() {
@@ -127,9 +148,9 @@ export default {
   padding-top: 20px;
   padding-bottom: 20px;
   .item {
-    display: flex;
-    padding-left: 30px;
-    padding-right: 30px;
+    // display: flex;
+    //  padding-left: 30px;
+    //  padding-right: 30px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     text-decoration: none;
@@ -137,15 +158,26 @@ export default {
     &:hover {
       background: rgba(0, 0, 0, 0.02);
     }
+
+    a {
+      text-decoration: none;
+      color: rgba(0, 0, 0, 0.8);
+    }
+    td {
+      padding-left: 20px;
+      padding-right: 20px;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
     > div {
-      max-width: 50%;
-      min-width: 50%;
     }
     .name {
       padding-top: 15px;
       padding-bottom: 15px;
       display: flex;
       align-items: center;
+
       small {
         margin-left: 5px;
       }
@@ -158,48 +190,49 @@ export default {
     }
   }
 
-  .info-r {
+  .current_output,
+  .norma_currently {
+    height: 60px;
+    width: 220px;
     display: flex;
-    > div {
-      width: 120px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      background: rgb(197, 197, 197);
-      color: #fff;
-      text-align: center;
-      justify-content: center;
-      margin-right: 20px;
-    }
-
+    align-items: center;
+    position: relative;
+    background: rgb(197, 197, 197);
+    color: #fff;
+    text-align: center;
+    justify-content: center;
+    // margin-right: 20px;
     .bg {
       position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 50%;
     }
 
     .t {
       position: relative;
       z-index: 2;
     }
+  }
 
-    .current_output {
-      overflow: hidden;
-      .bg {
-        background: red;
-        &.green {
-          color: green;
-        }
+  .current_output {
+    overflow: hidden;
+    .bg {
+      background: red;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 0;
+      &.green {
+        color: green;
       }
     }
+  }
 
-    .norma_currently {
-      .bg {
-        background: #1976d2;
-        height: 100%;
-      }
+  .norma_currently {
+    .bg {
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #1976d2;
+      height: 100%;
     }
   }
 }
@@ -229,6 +262,8 @@ body .theme--light.v-application {
     }
     .v-list-item {
       flex: 1 1 50%;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1);
     }
   }
 }
@@ -258,6 +293,30 @@ body .theme--light.v-application {
     .v-list-item__title {
       font-size: 1.7rem;
     }
+  }
+}
+
+@media (max-width: 1200px) {
+  .grafic-list .current_output,
+  .grafic-list .norma_currently {
+    width: 150px;
+  }
+}
+
+@media (max-width: 700px) {
+  .grafic-list .item td{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .grafic-list .current_output,
+  .grafic-list .norma_currently {
+    width: 100px;
+    height: 40px;
+  }
+
+  .grafic-list .item .name {
+    padding-top: 7px;
+    padding-bottom: 7px;
   }
 }
 </style>

@@ -64,7 +64,7 @@ export default {
   created() {
     this.$store.dispatch("getData");
     setInterval(() => {
-     // if (!this.$store.state.conect) return;
+      // if (!this.$store.state.conect) return;
       this.$store.dispatch("getData");
     }, 10000);
   },
@@ -228,6 +228,31 @@ export default {
   }
 }
 
+@media (min-height: 1100px) {
+  .list-nums{
+    padding-top: 50px;
+     font-size: 2.5rem;
+  }
+  .list-nums .n {
+    font-size: 6.2rem;
+  }
+  .equipment-stop {
+    h1 {
+      font-size: 5rem;
+      margin-bottom: 60px;
+    }
+  }
+  .name-st {
+    font-size: 2rem;
+  }
+  .list-nums .item{
+    margin-bottom: 40px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+
 @media (min-height: 1300px) {
   .list-nums .n {
     font-size: 7rem;
@@ -241,7 +266,7 @@ export default {
       margin-bottom: 60px;
     }
   }
-  .name-st{
+  .name-st {
     font-size: 3rem;
   }
 }
