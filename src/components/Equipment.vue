@@ -1,11 +1,6 @@
 <template>
   <div>
-    <v-container
-      fluid
-      fill-height
-      class="equipment"
-      v-if="data.stopped == '' && $store.state.conect"
-    >
+    <v-container fluid fill-height class="equipment" v-if="data.stopped == ''">
       <div class="name-st">
         {{data.name}}
         <small>({{data.article}})</small>
@@ -37,7 +32,7 @@
         </div>
       </div>
     </v-container>
-    <v-container fluid fill-height class="equipment" v-if="!$store.state.conect"></v-container>
+    <!-- <v-container fluid fill-height class="equipment" v-if="!$store.state.conect"></v-container> -->
     <v-container fluid fill-height class="equipment-stop" v-if="data.stopped">
       <div class="name-st">
         {{data.name}}
@@ -100,11 +95,15 @@ export default {
       let norma_currently = this.data.norma_currently;
       if (typeof current_output == "string") {
         current_output = current_output.replace(",", ".");
+        current_output = current_output.replace(" ", "");
       }
+
       if (typeof norma_currently == "string") {
         norma_currently = norma_currently.replace(",", ".");
+        norma_currently = norma_currently.replace(" ", "");
       }
-      //  console.log(current_output, norma_currently);
+
+     // console.log(current_output, norma_currently);
       let out = norma_currently - current_output;
       return out.toFixed(2);
     }
@@ -229,9 +228,9 @@ export default {
 }
 
 @media (min-height: 1100px) {
-  .list-nums{
+  .list-nums {
     padding-top: 50px;
-     font-size: 2.5rem;
+    font-size: 2.5rem;
   }
   .list-nums .n {
     font-size: 6.2rem;
@@ -245,9 +244,9 @@ export default {
   .name-st {
     font-size: 2rem;
   }
-  .list-nums .item{
+  .list-nums .item {
     margin-bottom: 40px;
-    &:last-child{
+    &:last-child {
       margin-bottom: 0;
     }
   }

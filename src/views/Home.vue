@@ -125,10 +125,12 @@ export default {
       let norma_currently = item.norma_currently;
       if (typeof norma_currently == "string") {
         norma_currently = norma_currently.replace(",", ".");
+        norma_currently = norma_currently.replace(" ", "");
       }
       let current_output = item.current_output;
       if (typeof current_output == "string") {
         current_output = current_output.replace(",", ".");
+        current_output = current_output.replace(" ", "");
       }
       let oneP = norma_currently / 100;
       return current_output / oneP;
