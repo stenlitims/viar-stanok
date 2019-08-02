@@ -17,7 +17,10 @@
         </div>
         <div class="item">
           <div class="t">Виконано</div>
-          <div class="n">{{data.current_output}}</div>
+          <div class="n">
+            <span v-if="data.current_output">{{data.current_output}}</span>
+            <span v-else>0</span>
+          </div>
         </div>
         <div class="item">
           <div class="t">Взято в роботу</div>
@@ -103,7 +106,7 @@ export default {
         norma_currently = norma_currently.replace(" ", "");
       }
 
-     // console.log(current_output, norma_currently);
+      // console.log(current_output, norma_currently);
       let out = norma_currently - current_output;
       return out.toFixed(2);
     }
