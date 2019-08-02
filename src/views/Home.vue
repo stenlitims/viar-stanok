@@ -59,7 +59,10 @@
                       :style="{'width': proc(item) + '%'}"
                       :class="{'green': proc(item) >= 100}"
                     ></div>
-                    <div class="t">{{item.current_output}}</div>
+                    <div class="t">
+                      <span v-if="item.current_output">{{item.current_output}}</span>
+                      <span v-else>0</span>
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -141,9 +144,9 @@ export default {
       let data = this.$store.state.data.filter(o => {
         return o.id == this.$store.state.id;
       });
-    //  console.log(data);
+      //  console.log(data);
       if (!data.length && this.$store.state.pass != this.$store.state.id) {
-     //   console.log(234);
+        //   console.log(234);
         this.$store.commit("setId", null);
       }
     }, 2000);
@@ -228,7 +231,7 @@ export default {
   }
 
   .current_output {
-   // overflow: hidden;
+    // overflow: hidden;
     .bg {
       background: red;
       left: 0;
