@@ -156,7 +156,8 @@ export default {
     setInterval(() => {
       if (!this.$store.state.conect) return;
       this.$store.dispatch("getData");
-    }, 200000);
+    }, 20
+    0000);
   }
 };
 </script>
