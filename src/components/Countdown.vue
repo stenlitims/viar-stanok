@@ -42,19 +42,7 @@ export default {
     };
   },
   created() {
-    if (!this.deadline && !this.end) {
-      throw new Error("Missing props 'deadline' or 'end'");
-    }
-    let endTime = this.deadline ? this.deadline : this.end;
-    this.date = Math.trunc(Date.parse(endTime.replace(/-/g, "/")) / 1000);
-    if (!this.date) {
-      throw new Error("Invalid props value, correct the 'deadline' or 'end'");
-    }
-    this.now = Math.trunc(new Date().getTime() / 1000);
-    this.diff = this.now - this.date;
-    interval = setInterval(() => {
-      this.now = Math.trunc(new Date().getTime() / 1000);
-    }, 1000);
+    this.bl();
   },
   computed: {
     seconds() {
@@ -79,6 +67,9 @@ export default {
         // Remove interval
         clearInterval(interval);
       }
+    },
+    deadline() {
+      this.bl();
     }
   },
   filters: {
@@ -90,6 +81,21 @@ export default {
     }
   },
   methods: {
+    bl() {
+      if (!this.deadline && !this.end) {
+        throw new Error("Missing props 'deadline' or 'end'");
+      }
+      let endTime = this.deadline ? this.deadline : this.end;
+      this.date = Math.trunc(Date.parse(endTime.replace(/-/g, "/")) / 1000);
+      if (!this.date) {
+        throw new Error("Invalid props value, correct the 'deadline' or 'end'");
+      }
+      this.now = Math.trunc(new Date().getTime() / 1000);
+      this.diff = this.now - this.date;
+      interval = setInterval(() => {
+        this.now = Math.trunc(new Date().getTime() / 1000);
+      }, 1000);
+    },
     // ( 2, ['МЕСЯЦ', 'МЕСЯЦА', 'МЕСЯЦЕВ']  )
     declension(num, expressions) {
       var result;

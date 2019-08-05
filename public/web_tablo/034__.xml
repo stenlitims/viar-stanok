@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<equipment id="70aea4e5-a70d-11e9-8122-005056b82fd7" article="00-153" name="HOMAG 18 ЛЕП" norm="1 200" norma_currently="688" current_output="483" quantity_on_performer="683" stopped="" change="1"/>
+	<equipment id="c7abfa94-82db-11e5-8316-000c29430d3b" article="03-082" name="ROVER 2 ЛЕП" norm="288" norma_currently="165" current_output="131" quantity_on_performer="54" stopped="" change="1"/>
+	<equipment id="3692b598-cbce-11e8-84b3-005056b13af7" article="00-089" name="MDS 2 ЛЕП" norm="1 704" norma_currently="977" current_output="569" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="1bb3bf93-ab0e-11e6-9151-005056b13af7" article="03-108" name="BHX 1 ЛЕП" norm="3 144" norma_currently="1 803" current_output="2 069" quantity_on_performer="448" stopped="" change="1"/>
+	<equipment id="31470609-ab0e-11e6-9151-005056b13af7" article="03-109" name="BHX 2 ЛЕП" norm="3 144" norma_currently="1 803" current_output="2 187" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="6a823dc4-9ce0-11e6-927e-005056b13af7" article="03-106" name="ROVER 4 ЛЕП" norm="288" norma_currently="165" current_output="" quantity_on_performer="16" stopped="" change="1"/>
+	<equipment id="b38f8016-19fc-11e7-9378-005056b13af7" article="00-003" name="HOLZMA 7 ЛЕП" norm="2 280" norma_currently="1 308" current_output="972" quantity_on_performer="204" stopped="" change="1"/>
+	<equipment id="1682a38f-31ae-11e4-9b3e-000c29430d31" article="03-072" name="КРИВОЛИНЕЙНЫЙ 3 ЛЕП VITAP" norm="180" norma_currently="103" current_output="57" quantity_on_performer="3" stopped="" change="1"/>
+	<equipment id="aecfd313-4205-11e8-9c15-005056b13af7" article="00-044" name="BHX 4 ЛЕП" norm="3 144" norma_currently="1 803" current_output="1 272" quantity_on_performer="357" stopped="" change="1"/>
+	<equipment id="5aa8fac7-a44f-11e8-9e78-005056b13af7" article="00-072" name="BHX 5 ЛЕП" norm="3 144" norma_currently="1 803" current_output="2 139" quantity_on_performer="62" stopped="" change="1"/>
+	<equipment id="13e498e5-120c-11e3-a087-0025909a7a21" article="03-066" name="HOMAG PUR 1 ЛЕП" norm="900" norma_currently="516" current_output="428" quantity_on_performer="59" stopped="" change="1"/>
+	<equipment id="13e498e7-120c-11e3-a087-0025909a7a21" article="03-068" name="HOLZMA 4 ЛЕП" norm="1 320" norma_currently="757" current_output="167" quantity_on_performer="24" stopped="" change="1"/>
+	<equipment id="dcb4a4de-7eb1-11e8-a336-005056b13af7" article="00-050" name="ROVER 5 ЛЕП" norm="288" norma_currently="165" current_output="143" quantity_on_performer="20" stopped="" change="1"/>
+	<equipment id="89def707-8f0b-11e8-a336-005056b13af7" article="00-069" name="MDS 1 ЛЕП" norm="1 704" norma_currently="977" current_output="706" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="72ef63fa-3a94-11e9-acd7-005056b13af7" article="00-104" name="SAWTEQ HPL 400 ЛЕП" norm="2 280" norma_currently="1 308" current_output="653" quantity_on_performer="6" stopped="" change="1"/>
+	<equipment id="ab6d0991-d921-11e8-ae64-005056b13af7" article="00-090" name="BHX 8 ЛЕП" norm="3 144" norma_currently="1 803" current_output="652" quantity_on_performer="185" stopped="" change="1"/>
+	<equipment id="888f9623-db4d-11e8-ae64-005056b13af7" article="00-091" name="MDS 3 ЛЕП" norm="1 704" norma_currently="977" current_output="828" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="ed241b93-f317-11e8-ae64-005056b13af7" article="00-094" name="BHX 9 ЛЕП" norm="3 144" norma_currently="1 803" current_output="1 918" quantity_on_performer="1 312" stopped="" change="1"/>
+	<equipment id="02df2d90-f318-11e8-ae64-005056b13af7" article="00-095" name="BHX 10 ЛЕП" norm="3 144" norma_currently="1 803" current_output="855" quantity_on_performer="68" stopped="" change="1"/>
+	<equipment id="cf913a26-8d35-11e6-b307-005056b13af7" article="03-096" name="HOMAG 8 ЛЕП" norm="1 200" norma_currently="688" current_output="681" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="aeb050b3-92bd-11e6-b307-005056b13af7" article="03-099" name="HOLZMA 6 ЛЕП" norm="2 280" norma_currently="1 308" current_output="749" quantity_on_performer="11" stopped="" change="1"/>
+	<equipment id="5ae87206-7ae2-11e9-b4e4-005056b13af7" article="00-129" name="HOMAG 11 ЛЕП" norm="1 200" norma_currently="688" current_output="650" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="7102a8f8-7ae2-11e9-b4e4-005056b13af7" article="00-130" name="HOMAG 12 ЛЕП" norm="1 200" norma_currently="688" current_output="1 176" quantity_on_performer="102" stopped="" change="1"/>
+	<equipment id="8452c112-7ae2-11e9-b4e4-005056b13af7" article="00-131" name="HOMAG 13 ЛЕП" norm="1 200" norma_currently="688" current_output="1 109" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="89b56d56-86a4-11e9-b4e4-005056b13af7" article="00-133" name="SAWTEQ 11 ЛЕП" norm="2 280" norma_currently="1 308" current_output="1 001" quantity_on_performer="90" stopped="14.39-02.08.2019" change="1"/>
+	<equipment id="9cdaa482-86a4-11e9-b4e4-005056b13af7" article="00-134" name="SAWTEQ 12 ЛЕП" norm="2 280" norma_currently="1 308" current_output="1 072" quantity_on_performer="65" stopped="" change="1"/>
+	<equipment id="3e96332d-9e25-11e9-b6c7-005056b13af7" article="00-138" name="SAWTEQ 14 ЛЕП" norm="2 280" norma_currently="1 308" current_output="2 332" quantity_on_performer="30" stopped="" change="1"/>
+	<equipment id="60359f2b-9e25-11e9-b6c7-005056b13af7" article="00-139" name="HOMAG 15 ЛЕП" norm="1 200" norma_currently="688" current_output="549" quantity_on_performer="183" stopped="" change="1"/>
+	<equipment id="11959360-a2df-11e9-b6c7-005056b13af7" article="00-152" name="BHX 12 ЛЕП" norm="3 144" norma_currently="1 803" current_output="1 651" quantity_on_performer="63" stopped="" change="1"/>
+	<equipment id="bcdc8ec1-9ea0-11e7-b70a-005056b13af7" article="00-016" name="BHX 3 ЛЕП" norm="3 144" norma_currently="1 803" current_output="967" quantity_on_performer="1 757" stopped="" change="1"/>
+	<equipment id="cc07b51b-a8ca-11e7-b70a-005056b13af7" article="00-018" name="HOLZMA 8 ЛЕП" norm="2 280" norma_currently="1 308" current_output="758" quantity_on_performer="88" stopped="" change="1"/>
+	<equipment id="dca9db12-f9a0-11e6-b776-005056b13af7" article="00-002" name="HOMAG AIRTEC 3 ЛЕП" norm="900" norma_currently="516" current_output="312" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="fa3cada7-3239-11e1-b8f3-1cc1dee862d0" article="03-036" name="HOLZMA 1 ЛЕП" norm="2 280" norma_currently="1 308" current_output="653" quantity_on_performer="67" stopped="" change="1"/>
+	<equipment id="fa3cada8-3239-11e1-b8f3-1cc1dee862d0" article="03-002" name="HOLZMA 2 ЛЕП" norm="2 280" norma_currently="1 308" current_output="1 310" quantity_on_performer="153" stopped="" change="1"/>
+	<equipment id="fa3cadac-3239-11e1-b8f3-1cc1dee862d0" article="03-007" name="ALTENDORF 1 ЛЕП" norm="552" norma_currently="317" current_output="1 027" quantity_on_performer="17" stopped="" change="1"/>
+	<equipment id="fa3cadad-3239-11e1-b8f3-1cc1dee862d0" article="03-008" name="VENTURA ЛЕП" norm="288" norma_currently="165" current_output="199" quantity_on_performer="15" stopped="" change="1"/>
+	<equipment id="fa3cadae-3239-11e1-b8f3-1cc1dee862d0" article="03-009" name="КРИВОЛИНЕЙНЫЙ 1 ЛЕП R-18 " norm="180" norma_currently="103" current_output="59" quantity_on_performer="14" stopped="" change="1"/>
+	<equipment id="d16344e0-cca4-11e5-b8f4-005056b18742" article="03-086" name="HOMAG 6 ЛЕП" norm="1 200" norma_currently="688" current_output="382" quantity_on_performer="" stopped="" change="1"/>
+	<equipment id="f3888e52-a632-11e1-bc48-0025904a3a00" article="03-031" name="HOLZMA 3 ЛЕП" norm="2 280" norma_currently="1 308" current_output="704" quantity_on_performer="949" stopped="" change="1"/>
+	<equipment id="f3888e56-a632-11e1-bc48-0025904a3a00" article="03-032" name="КРИВОЛИНЕЙНЫЙ 2 ЛЕП R-17" norm="180" norma_currently="103" current_output="44" quantity_on_performer="10" stopped="" change="1"/>
+</data>

@@ -14,8 +14,7 @@ export default new Vuex.Store({
     conect: true,
     id: null,
     pass: 'BIGboss',
-    path: 'web_tablo/034.xml',
-
+    path: 'https://panel.synergy-bud.com.ua/assets/api/034.xml',
   },
   mutations: {
     getData(state, payload) {

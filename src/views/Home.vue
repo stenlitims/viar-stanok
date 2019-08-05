@@ -156,7 +156,7 @@ export default {
     setInterval(() => {
       if (!this.$store.state.conect) return;
       this.$store.dispatch("getData");
-    }, 20000);
+    }, 200000);
   }
 };
 </script>
@@ -187,8 +187,6 @@ export default {
       padding-top: 0 !important;
       padding-bottom: 0 !important;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    > div {
     }
     .name {
       padding-top: 15px;
@@ -261,9 +259,7 @@ body .theme--light.v-application {
 .main-page {
   padding: 0 !important;
   background: #fff;
-  .v-list {
-    //   background: none;
-  }
+
 }
 
 .d-list {
