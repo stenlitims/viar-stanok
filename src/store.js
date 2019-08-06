@@ -14,7 +14,7 @@ export default new Vuex.Store({
     conect: true,
     id: null,
     pass: 'BIGboss',
-    path: 'assets/api/034.xml',
+    path: 'web_tablo/034.xml',
 
   },
   mutations: {
