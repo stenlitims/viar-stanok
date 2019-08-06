@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "ded03a6f11889c12f052",
+    "revision": "44d61b7bf2031dd0416b",
     "url": "/css/app.fe4cad90.css"
   },
   {
-    "revision": "ded03a6f11889c12f052",
-    "url": "/js/app.5d21ec22.js"
+    "revision": "44d61b7bf2031dd0416b",
+    "url": "/js/app.445cbf5a.js"
   },
   {
     "revision": "bd2049a2c10f25fd61bd",
@@ -36,16 +36,12 @@ self.__precacheManifest = [
     "url": "/fonts/MaterialIcons-Regular.da4ea5cd.ttf"
   },
   {
-    "revision": "1ee634d9ac92dbc1c851d7061bc3af7e",
+    "revision": "f040aa44772c5e1fbdfb13e340fb7d49",
     "url": "/index.html"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/robots.txt"
-  },
-  {
-    "revision": "1e570546befa950be25a347bfc73e586",
-    "url": "/settings.json"
   },
   {
     "revision": "5d8cf85ac5306f949444a6ef88c8cd2b",
@@ -56,7 +52,15 @@ self.__precacheManifest = [
     "url": "/web_tablo/034_.xml"
   },
   {
+    "revision": "c7e65e0499f3f6af3b158391f078d0b1",
+    "url": "/settings.json"
+  },
+  {
     "revision": "64da2cb86f987f2494a7a8d419a002bc",
+    "url": "/web_tablo/_____034.xml"
+  },
+  {
+    "revision": "96be1700107f2c6eb919f573677a87e5",
     "url": "/web_tablo/034.xml"
   },
   {
