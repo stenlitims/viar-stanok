@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "83d4b4388ea212f0c1f0",
-    "url": "/css/app.7c69806a.css"
+    "revision": "db6e244b2ad6f14b7e9b",
+    "url": "/css/app.f164f702.css"
   },
   {
-    "revision": "83d4b4388ea212f0c1f0",
-    "url": "/js/app.f2e03286.js"
+    "revision": "db6e244b2ad6f14b7e9b",
+    "url": "/js/app.3ebefdb2.js"
   },
   {
     "revision": "4160daedbb0e5d5561f3",
@@ -36,7 +36,7 @@ self.__precacheManifest = [
     "url": "/fonts/MaterialIcons-Regular.da4ea5cd.ttf"
   },
   {
-    "revision": "c7283473861f33255652839b090f1027",
+    "revision": "53789c967c66c6fd627d8a408129d648",
     "url": "/index.html"
   },
   {
@@ -44,12 +44,12 @@ self.__precacheManifest = [
     "url": "/config.php"
   },
   {
-    "revision": "c4dd619290a316acb1c2fcfdc4854439",
-    "url": "/api.php"
-  },
-  {
     "revision": "fe504bc44c2e5d0d3ec2659b10362ba2",
     "url": "/csv/data.csv"
+  },
+  {
+    "revision": "c4dd619290a316acb1c2fcfdc4854439",
+    "url": "/api.php"
   },
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
