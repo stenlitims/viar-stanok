@@ -20,6 +20,8 @@ export default {
     }
   },
   created(){
+    this.$store.dispatch("getDate");
+    this.$store.dispatch("getList");
     this.$store.dispatch("getSettingss");
   }
 };

@@ -1,28 +1,15 @@
 <template>
-  <ul class="vuejs-countdown">
-    <li v-if="days > 0">
-      <p class="digit">{{ days | twoDigits }}</p>
-      <p class="text">{{ declension(days, ['день', 'дня', 'днів']) }}</p>
-    </li>
-    <li>
-      <p class="digit">{{ hours | twoDigits }}</p>
-      <p class="text">{{ declension(hours, ['година', 'години', 'годин']) }}</p>
-    </li>
-    <li>
-      <p class="digit">{{ minutes | twoDigits }}</p>
-      <p class="text">хв.</p>
-    </li>
-    <li>
-      <p class="digit">{{ seconds | twoDigits }}</p>
-      <p class="text">сек.</p>
-    </li>
-  </ul>
+  <div class="min-countdown">
+    <span v-if="days > 0"> <b>{{ days | twoDigits }}</b> {{ declension(days, ['день', 'дня', 'днів']) }} </span>
+    <span> <b>{{ hours | twoDigits }}</b>  {{ declension(hours, ['година', 'години', 'годин']) }}</span>
+    <span>{{ minutes | twoDigits }} : {{ seconds | twoDigits }} </span>
+  </div>
 </template>
 
 <script>
 let interval = null;
 export default {
-  name: "vuejsCountDown",
+  name: "MinCountDown",
   props: {
     deadline: {
       type: String
@@ -82,7 +69,7 @@ export default {
   },
   methods: {
     bl() {
-      this.$store.dispatch("getDate").then(() => {
+    //  this.$store.dispatch("getDate").then(() => {
         if (!this.deadline && !this.end) {
           throw new Error("Missing props 'deadline' or 'end'");
         }
@@ -100,7 +87,7 @@ export default {
         interval = setInterval(() => {
           this.now = this.now + 1;
         }, 1000);
-      });
+     // });
     },
     // ( 2, ['МЕСЯЦ', 'МЕСЯЦА', 'МЕСЯЦЕВ']  )
     declension(num, expressions) {
@@ -127,67 +114,12 @@ export default {
 };
 </script>
 <style lang="scss">
-.vuejs-countdown {
-  padding: 0 !important;
-  margin: 0;
-  display: flex;
-  list-style: none;
-}
-.vuejs-countdown li {
-  // display: inline-block;
-  margin: 0 20px;
-  text-align: center;
-  position: relative;
-}
-.vuejs-countdown li p {
-  margin: 0;
-}
-/* .vuejs-countdown li:after {
-  content: ":";
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  right: -50%;
-  font-size: 42px;
-} */
-.vuejs-countdown li:first-of-type {
-  margin-left: 0;
-}
-.vuejs-countdown li:last-of-type {
-  margin-right: 0;
-}
-.vuejs-countdown li:last-of-type:after {
-  content: "";
-}
-.vuejs-countdown .digit {
-  font-size: 72px;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 0;
-}
-.vuejs-countdown .text {
-  text-transform: uppercase;
-  margin-bottom: 0;
-  font-size: 20px;
+.min-countdown{
+  font-size: 13px;
+  padding-left: 10px;
+  span{
+    margin-right: 7px;
+  }
 }
 
-@media (min-height: 1300px) {
-  .vuejs-countdown {
-    width: 80vw;
-    text-align: center;
-    flex-wrap: wrap;
-    li {
-      width: 50%;
-      margin: 0;
-      margin-bottom: 70px;
-    }
-  }
-
-  .vuejs-countdown .digit {
-    font-size: 100px;
-  }
-  .vuejs-countdown .text {
-    font-size: 30px;
-  }
-}
 </style>

@@ -24,7 +24,10 @@
         </div>
         <div class="item">
           <div class="t">Взято в роботу</div>
-          <div class="n">{{data.quantity_on_performer}}</div>
+          <div class="n">
+            <span v-if="data.quantity_on_performer">{{data.quantity_on_performer}}</span>
+            <span v-else>0</span>
+          </div>
         </div>
         <div class="item done">
           <div class="t">
@@ -35,7 +38,13 @@
         </div>
       </div>
     </v-container>
-    <!-- <v-container fluid fill-height class="equipment" v-if="!$store.state.conect"></v-container> -->
+    <v-container fluid fill-height class="equipment equipment-off" v-if="!data.current_output">
+      <div class="name-st">
+        {{data.name}}
+        <small>({{data.article}})</small>
+      </div>
+      <h1>Станок відключиний</h1>
+    </v-container>
     <v-container fluid fill-height class="equipment-stop" v-if="data.stopped">
       <div class="name-st">
         {{data.name}}
@@ -64,7 +73,7 @@ export default {
     setInterval(() => {
       // if (!this.$store.state.conect) return;
       this.$store.dispatch("getData");
-    }, 200000);
+    }, this.$store.state.timeUser);
   },
   computed: {
     data() {
@@ -80,7 +89,14 @@ export default {
       if (data.length) {
         return data[0];
       } else {
-        return {};
+        let list = this.$store.state.list.filter(o => {
+          return o.id == id;
+        });
+        if (list.length) {
+          return list[0];
+        } else {
+          return {};
+        }
       }
     },
     timeer() {
@@ -96,17 +112,9 @@ export default {
     done() {
       let current_output = this.data.current_output;
       let norma_currently = this.data.norma_currently;
-      if (typeof current_output == "string") {
-        current_output = current_output.replace(",", ".");
-        current_output = current_output.replace(" ", "");
-      }
+      norma_currently = this.ToNum(norma_currently);
+      current_output = this.ToNum(current_output);
 
-      if (typeof norma_currently == "string") {
-        norma_currently = norma_currently.replace(",", ".");
-        norma_currently = norma_currently.replace(" ", "");
-      }
-
-      // console.log(current_output, norma_currently);
       let out = norma_currently - current_output;
       return out.toFixed(2);
     }
@@ -117,6 +125,13 @@ export default {
 
 
 <style lang="scss">
+.equipment-off {
+  justify-content: center;
+  h1 {
+    font-size: 60px;
+  }
+}
+
 @keyframes bgAnim {
   0% {
     background: rgb(138, 15, 15);
@@ -153,6 +168,8 @@ export default {
   color: #fff;
   padding-top: 15px;
   font-size: 2rem;
+  text-align: center;
+  width: 100%;
 }
 
 .v-btn--fab {
@@ -221,10 +238,20 @@ export default {
     font-size: 2rem;
   }
 }
-@media (max-width: 1200px) {
+
+@media (max-height: 700px) {
   .list-nums .n {
-    font-size: 5rem;
+    font-size: 4rem;
   }
+  .list-nums {
+    font-size: 2rem;
+  }
+  .list-nums {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 1200px) {
   .list-nums {
     font-size: 1.8rem;
   }

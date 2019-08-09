@@ -2,8 +2,11 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 import createPersistedState from 'vuex-persistedstate'
-import parser from 'fast-xml-parser'
-import he from 'he'
+//import parser from 'fast-xml-parser'
+//import he from 'he'
+
+const domin = document.location.host == "localhost:8080" ? 'http://viar.loc/' : '';
+
 
 Vue.use(Vuex)
 
@@ -15,18 +18,40 @@ export default new Vuex.Store({
     id: null,
     pass: 'BIGboss',
     path: 'web_tablo/034.xml',
-
+    date: null,
+    list: [],
+    groups: [],
+    timeAdmin: 200000,
+    timeUser: 200000,
+    nav: {}
   },
   mutations: {
     getData(state, payload) {
       state.data = payload;
     },
+    getDate(state, payload) {
+      state.date = payload;
+    },
+    getList(state, payload) {
+      let groups = [];
+      payload.forEach(o => {
+        if (!groups.includes(o.group)) {
+          groups.push(o.group);
+        }
+      });
+      // console.log(groups);
+      state.groups = groups;
+      state.list = payload;
+    },
     getSettingss(state, payload) {
       if (payload.pass) {
         state.pass = payload.pass;
       }
-      if (payload.path) {
-        state.path = payload.path;
+      if (payload.timeAdmin) {
+        state.timeAdmin = payload.timeAdmin;
+      }
+      if (payload.timeUser) {
+        state.timeUser = payload.timeUser;
       }
       //  console.log(payload);
     },
@@ -40,9 +65,37 @@ export default new Vuex.Store({
       commit,
       state
     }) {
-      axios.get('/settings.json?v=' + Date.now())
+      axios.get(domin + 'api.php?get=settings')
         .then((response) => {
           commit('getSettingss', response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+    },
+
+    getDate({
+      commit,
+      state
+    }) {
+      axios.get(domin + 'api.php?get=date')
+        .then((response) => {
+          commit('getDate', response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+    },
+
+    getList({
+      commit,
+      state
+    }) {
+      axios.get(domin + 'api.php?get=list')
+        .then((response) => {
+          commit('getList', response.data);
         })
         .catch(function (error) {
           console.log(error);
@@ -54,48 +107,16 @@ export default new Vuex.Store({
       commit,
       state
     }) {
-      axios.get(state.path + '?v=' + Date.now())
-        // axios.get('http://test.synergy.com.ua/assets/data.xml')
+      axios.get(domin + 'api.php?get=data')
+
         .then((response) => {
 
           if (response.status != 200) {
             state.conect = false;
             return;
           }
-
-
           state.conect = true;
-
-          let xmlData = response.data;
-
-          let options = {
-            attributeNamePrefix: "",
-            attrNodeName: false, //default is 'false'
-            textNodeName: "#text",
-            ignoreAttributes: false,
-            ignoreNameSpace: false,
-            allowBooleanAttributes: false,
-            parseNodeValue: true,
-            parseAttributeValue: false,
-            trimValues: true,
-            cdataTagName: "__cdata", //default is 'false'
-            cdataPositionChar: "\\c",
-            localeRange: "", //To support non english character in tag/attribute values.
-            parseTrueNumberOnly: false,
-            attrValueProcessor: a => he.decode(a, {
-              isAttributeValue: true
-            }), //default is a=>a
-            tagValueProcessor: a => he.decode(a) //default is a=>a
-          };
-
-          if (parser.validate(xmlData) === true) {
-            let jsonObj = parser.parse(xmlData, options);
-            //  console.log(jsonObj.data.equipment);
-            commit('getData', jsonObj.data.equipment);
-          } else {
-            state.conect = false;
-          }
-
+          commit('getData', response.data);
 
         })
         .catch(function (error) {

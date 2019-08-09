@@ -54,7 +54,7 @@ export default {
           this.$store.commit("setId", this.login);
           return;
         }
-        let data = this.$store.state.data.filter(o => {
+        let data = this.$store.state.list.filter(o => {
           return o.article == this.login;
         });
 
