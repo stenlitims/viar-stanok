@@ -38,12 +38,13 @@
         </div>
       </div>
     </v-container>
-    <v-container fluid fill-height class="equipment equipment-off" v-if="!data.current_output">
-      <div class="name-st">
+    <v-container fluid fill-height class="equipment equipment-off" v-if="!data.current_output && !data.norm">
+      <div class="name-st" v-if="data.name">
         {{data.name}}
         <small>({{data.article}})</small>
       </div>
-      <h1>Станок відключиний</h1>
+      <h1 v-if="data.name">Станок відключиний</h1>
+      <h1 v-else>Помилка 404</h1>
     </v-container>
     <v-container fluid fill-height class="equipment-stop" v-if="data.stopped">
       <div class="name-st">
@@ -82,18 +83,14 @@ export default {
       if (this.$route.params.id) {
         id = this.$route.params.id;
       }
-      data = data.filter(o => {
-        return o.id == id;
-      });
+      data = data.find(o => o.id == id);
 
-      if (data.length) {
-        return data[0];
+      if (data) {
+        return data;
       } else {
-        let list = this.$store.state.list.filter(o => {
-          return o.id == id;
-        });
-        if (list.length) {
-          return list[0];
+        let item = this.$store.state.list.find(o => o.id == id);
+        if (item) {
+          return item;
         } else {
           return {};
         }
@@ -110,11 +107,8 @@ export default {
       //  console.log(h);
     },
     done() {
-      let current_output = this.data.current_output;
-      let norma_currently = this.data.norma_currently;
-      norma_currently = this.ToNum(norma_currently);
-      current_output = this.ToNum(current_output);
-
+      let current_output = this.ToNum(this.data.current_output);
+      let norma_currently = this.ToNum(this.data.norma_currently);
       let out = norma_currently - current_output;
       return out.toFixed(2);
     }

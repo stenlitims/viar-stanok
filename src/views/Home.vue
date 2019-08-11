@@ -202,11 +202,8 @@ export default {
         group = sortBy(group, ["name"]);
 
         group.forEach(o => {
-          let ditems = data.filter(d => {
-            return d.id == o.id;
-          });
-          if (ditems.length) {
-            let ditem = ditems[0];
+          let ditem = data.find(d => d.id == o.id);
+          if (ditem) {
             o.change = ditem.change;
             o.current_output = this.ToNum(ditem.current_output);
             o.norm = this.ToNum(ditem.norm);
