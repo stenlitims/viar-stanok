@@ -230,7 +230,6 @@ export default {
           current_output,
           norm,
           norma_currently,
-          quantity_on_performer,
           count
         };
         out.push(temp);
