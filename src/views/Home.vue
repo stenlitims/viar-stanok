@@ -24,7 +24,7 @@
           </v-toolbar>
 
           <div class="grafic-list" v-if="typeList == 'grafic'">
-            <div class="gr-item head"></div>
+            <!-- <div class="gr-item head"></div> -->
             <div v-for="(item, i) in list" :key="i">
               <div class="gr-item" @click="$set(nav, 's'+i, !nav['s'+i])">
                 <div class="name">
@@ -71,21 +71,16 @@
                   class="item"
                   v-for="(item2, i) in item.group"
                   :key="i"
-                  :class="{'stop': item2.stopped != '' && item2.stopped}"
+                  :class="{'stop': item2.stopped != '' && item2.stopped, 'no-data': !item2.norma_currently}"
                 >
                   <td>
-                    <router-link :to="'equipment/'+item2.id" v-if="item2.norma_currently">
+                    <router-link :to="'equipment/'+item2.id">
                       <div class="name">
                         <v-icon>arrow_forward</v-icon>
                         {{item2.name}}
                         <small>({{item2.article}})</small>
                       </div>
                     </router-link>
-                    <div v-else class="name no-data">
-                      <v-icon>arrow_forward</v-icon>
-                      {{item2.name}}
-                      <small>({{item2.article}})</small>
-                    </div>
                   </td>
 
                   <td>
@@ -331,7 +326,7 @@ export default {
 
   .gr-item {
     display: flex;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid rgba(0, 0, 0, 0.2);
     align-items: center;
     background: #fff;
     cursor: pointer;
@@ -357,6 +352,7 @@ export default {
     .t-in {
       margin-left: 7px;
       flex: 1;
+      font-weight: bold;
     }
 
     .v-btn--fab.v-size--default {
@@ -366,10 +362,11 @@ export default {
     }
   }
   .no-data {
-    opacity: 0.7;
+    //  opacity: 0.7;
+    background: #c0e7f8 !important;
   }
   table {
-    margin-left: 20px;
+    margin-left: 60px;
     margin-bottom: 15px;
     margin-top: 10px;
     .current_output,
@@ -382,6 +379,9 @@ export default {
     }
     .v-icon.v-icon {
       font-size: 20px;
+    }
+    td:first-child {
+      padding-left: 15px;
     }
   }
 

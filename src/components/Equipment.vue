@@ -38,12 +38,21 @@
         </div>
       </div>
     </v-container>
-    <v-container fluid fill-height class="equipment equipment-off" v-if="!data.current_output && !data.norm">
+    <v-container
+      fluid
+      fill-height
+      class="equipment equipment-off"
+      v-if="!data.current_output && !data.norm"
+    >
       <div class="name-st" v-if="data.name">
         {{data.name}}
         <small>({{data.article}})</small>
       </div>
-      <h1 v-if="data.name">Станок відключиний</h1>
+      <div v-if="data.name" >
+        <h1>ВИХІДНИЙ!</h1>
+        <img src="img/otpusk.jpg" alt="">
+      </div>
+
       <h1 v-else>Помилка 404</h1>
     </v-container>
     <v-container fluid fill-height class="equipment-stop" v-if="data.stopped">
@@ -119,12 +128,7 @@ export default {
 
 
 <style lang="scss">
-.equipment-off {
-  justify-content: center;
-  h1 {
-    font-size: 60px;
-  }
-}
+
 
 @keyframes bgAnim {
   0% {
@@ -202,6 +206,19 @@ export default {
     &.color-red {
       color: red;
     }
+  }
+}
+
+.equipment-off {
+  justify-content: center;
+  background: #9FE2FF;
+  color: #000;
+  text-align: center;
+  h1 {
+    font-size: 60px;
+  }
+  .name-st{
+    color: #000;
   }
 }
 

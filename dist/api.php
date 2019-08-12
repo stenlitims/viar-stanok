@@ -6,6 +6,13 @@ header('Access-Control-Allow-Origin: *');
 //header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Accept, Authorization, X-Requested-With, Application');
 
+
+function writeFile($data, $file){
+    $f = fopen($file, 'w');
+	fwrite ($f, $data, strlen($data));
+	fclose($f);
+}
+
 if($_GET['get'] == 'date'){
     echo time();
 }
@@ -75,9 +82,10 @@ if($_GET['get'] == 'data'){
     }
     
     $out = json_encode($out);
-    $f = fopen($cache_file, 'w');
-	fwrite ($f, $out, strlen($out));
-	fclose($f);
+    writeFile($out, $cache_file);
+    // $f = fopen($cache_file, 'w');
+	// fwrite ($f, $out, strlen($out));
+	// fclose($f);
 
     echo $out;
 }
