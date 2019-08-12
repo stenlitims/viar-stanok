@@ -48,9 +48,10 @@
         {{data.name}}
         <small>({{data.article}})</small>
       </div>
-      <div v-if="data.name" >
+      <div v-if="data.name">
         <h1>ВИХІДНИЙ!</h1>
-        <img src="img/otpusk.jpg" alt="">
+        <Countdown :deadline="weekend" v-if="weekend"></Countdown>
+        <img src="img/otpusk.jpg" alt />
       </div>
 
       <h1 v-else>Помилка 404</h1>
@@ -78,26 +79,37 @@
 import Countdown from "@/components/Countdown.vue";
 export default {
   components: { Countdown },
+  data() {
+    return {
+      intervalData: null
+    };
+  },
+  beforeDestroy() {
+    clearInterval(this.intervalData);
+  },
   created() {
     this.$store.dispatch("getData");
-    setInterval(() => {
-      // if (!this.$store.state.conect) return;
+    this.intervalData = setInterval(() => {
       this.$store.dispatch("getData");
     }, this.$store.state.timeUser);
   },
   computed: {
-    data() {
-      let data = this.$store.state.data;
+    mId() {
       let id = this.$store.state.id;
       if (this.$route.params.id) {
         id = this.$route.params.id;
       }
-      data = data.find(o => o.id == id);
+      return id;
+    },
+    data() {
+      let data = [...this.$store.state.data];
+
+      data = data.find(o => o.id == this.mId);
 
       if (data) {
         return data;
       } else {
-        let item = this.$store.state.list.find(o => o.id == id);
+        let item = this.$store.state.list.find(o => o.id == this.mId);
         if (item) {
           return item;
         } else {
@@ -109,6 +121,16 @@ export default {
       if (!this.data.stopped) return false;
       //  console.log(this.data.stopped);
       let time = this.data.stopped.split("-");
+      let h = time[0].replace(".", ":");
+      let d = time[1].split(".");
+      // 10:07 07 24, 2019
+      return h + " " + d[1] + " " + d[0] + ", " + d[2];
+      //  console.log(h);
+    },
+    weekend() {
+      let weekend = this.$store.state.weekend.find(d => d.id == this.mId);
+      if (!weekend) return false;
+      let time = weekend.time.split("-");
       let h = time[0].replace(".", ":");
       let d = time[1].split(".");
       // 10:07 07 24, 2019
@@ -128,8 +150,6 @@ export default {
 
 
 <style lang="scss">
-
-
 @keyframes bgAnim {
   0% {
     background: rgb(138, 15, 15);
@@ -150,12 +170,33 @@ export default {
 
 .equipment-stop {
   background: rgb(201, 8, 8);
+
   color: #fff;
   min-height: 100vh !important;
   animation: bgAnim 1s infinite;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 60vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(/img/kluch.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translate(0, -50%);
+    background-size: contain;
+    opacity: .4;
+  }
+  .text-xs-center{
+    position: relative;
+    z-index: 2;
+  }
 }
 
 .name-st {
@@ -168,6 +209,7 @@ export default {
   font-size: 2rem;
   text-align: center;
   width: 100%;
+  z-index: 1;
 }
 
 .v-btn--fab {
@@ -211,14 +253,19 @@ export default {
 
 .equipment-off {
   justify-content: center;
-  background: #9FE2FF;
+  background: #9fe2ff;
   color: #000;
   text-align: center;
   h1 {
     font-size: 60px;
   }
-  .name-st{
+  .name-st {
     color: #000;
+  }
+  .vuejs-countdown {
+    justify-content: center;
+    color: red;
+    margin-bottom: 30px;
   }
 }
 

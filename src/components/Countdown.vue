@@ -4,7 +4,7 @@
       <p class="digit">{{ days | twoDigits }}</p>
       <p class="text">{{ declension(days, ['день', 'дня', 'днів']) }}</p>
     </li>
-    <li>
+    <li v-if="hours > 0">
       <p class="digit">{{ hours | twoDigits }}</p>
       <p class="text">{{ declension(hours, ['година', 'години', 'годин']) }}</p>
     </li>

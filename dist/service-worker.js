@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.8d371b3df48558051e822305a3c10eb9.js"
+  "/precache-manifest.aa790584b5ee5eb2fa980b6e119570d9.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "viyar-stanok"});

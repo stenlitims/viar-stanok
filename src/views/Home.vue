@@ -101,6 +101,7 @@
                         <span v-else>0</span>
                       </div>
                     </div>
+                    <CountdownMin v-if="item2.weekend" :deadline="timeer(item2.weekend)"></CountdownMin>
                   </td>
                   <td v-else>
                     <CountdownMin :deadline="timeer(item2.stopped)"></CountdownMin>
@@ -141,6 +142,7 @@ import Login from "@/components/Login.vue";
 import Equipment from "@/components/Equipment.vue";
 import CountdownMin from "@/components/CountdownMin.vue";
 import sortBy from "lodash.sortby";
+import cloneDeep from "clone-deep";
 export default {
   components: {
     Login,
@@ -150,7 +152,9 @@ export default {
   name: "home",
   data: () => ({
     search: null,
-    typeList: "grafic"
+    typeList: "grafic",
+    intervalData: null,
+    intervalWeekend: null
     //   nav: {}
   }),
   computed: {
@@ -171,8 +175,9 @@ export default {
     },
     list() {
       let groups = this.$store.state.groups;
-      let list = this.$store.state.list;
+      let list = cloneDeep(this.$store.state.list);
       let data = this.$store.state.data;
+      let weekend = this.$store.state.weekend;
       let out = [];
       if (this.search) {
         list = list.filter(o => {
@@ -212,6 +217,11 @@ export default {
             quantity_on_performer =
               quantity_on_performer + o.quantity_on_performer;
             count++;
+          } else {
+            let fr = weekend.find(d => d.id == o.id);
+            if (fr) {
+              o.weekend = fr.time;
+            }
           }
         });
 
@@ -267,12 +277,22 @@ export default {
       }
     }, 2000);
   },
+  beforeDestroy() {
+    clearInterval(this.intervalData);
+    clearInterval(this.intervalWeekend);
+  },
   created() {
     this.$store.dispatch("getData");
-    setInterval(() => {
+    this.$store.dispatch("getWeekend");
+    this.intervalData = setInterval(() => {
       //  if (!this.$store.state.conect) return;
       this.$store.dispatch("getData");
     }, this.$store.state.timeAdmin);
+
+    this.intervalWeekend = setInterval(() => {
+      this.$store.dispatch("getWeekend");
+      this.$store.dispatch("getDate");
+    }, 5000);
   }
 };
 </script>

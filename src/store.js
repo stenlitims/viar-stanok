@@ -20,9 +20,11 @@ export default new Vuex.Store({
     path: 'web_tablo/034.xml',
     date: null,
     list: [],
+    weekend: [],
     groups: [],
     timeAdmin: 200000,
     timeUser: 200000,
+    timeWeekend: 200000,
     nav: {}
   },
   mutations: {
@@ -31,6 +33,9 @@ export default new Vuex.Store({
     },
     getDate(state, payload) {
       state.date = payload;
+    },
+    getWeekend(state, payload) {
+      state.weekend = payload;
     },
     getList(state, payload) {
       let groups = [];
@@ -52,6 +57,9 @@ export default new Vuex.Store({
       }
       if (payload.timeUser) {
         state.timeUser = payload.timeUser;
+      }
+      if (payload.timeWeekend) {
+        state.timeWeekend = payload.timeWeekend;
       }
       //  console.log(payload);
     },
@@ -88,6 +96,21 @@ export default new Vuex.Store({
         });
 
     },
+
+    getWeekend({
+      commit,
+      state
+    }) {
+      axios.get(domin + 'api.php?get=weekend')
+        .then((response) => {
+          commit('getWeekend', response.data);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+
+    },
+
 
     getList({
       commit,

@@ -1,23 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "65f1b76efd63db40fd0f",
-    "url": "/css/app.3672c089.css"
+    "revision": "a602d8a281d40e06a19e",
+    "url": "/css/app.86afd687.css"
   },
   {
-    "revision": "65f1b76efd63db40fd0f",
-    "url": "/js/app.aaa92c28.js"
+    "revision": "a602d8a281d40e06a19e",
+    "url": "/js/app.76a5aa50.js"
   },
   {
-    "revision": "4160daedbb0e5d5561f3",
-    "url": "/js/chunk-2d0a49ca.2103a626.js"
+    "revision": "0ea7875823bee606e3a8",
+    "url": "/js/chunk-2d0a49ca.37b7259f.js"
   },
   {
-    "revision": "316fca77e8a47a8bb1df",
+    "revision": "a9482c863b94fbad5690",
     "url": "/css/chunk-vendors.396a8939.css"
   },
   {
-    "revision": "316fca77e8a47a8bb1df",
-    "url": "/js/chunk-vendors.9395481f.js"
+    "revision": "a9482c863b94fbad5690",
+    "url": "/js/chunk-vendors.ce96875d.js"
   },
   {
     "revision": "0509ab09c1b0d2200a4135803c91d6ce",
@@ -36,36 +36,44 @@ self.__precacheManifest = [
     "url": "/fonts/MaterialIcons-Regular.da4ea5cd.ttf"
   },
   {
-    "revision": "b1ee7cb5624f7d2bebf674dbd0d5a1e9",
+    "revision": "9ba3d56f79ee45c7fad68d09a41457ac",
     "url": "/index.html"
   },
   {
-    "revision": "c446324be6c40a00fc56d32cfafc3e29",
+    "revision": "f70507c5ea70ae52f5340e42c179c8f2",
     "url": "/api.php"
-  },
-  {
-    "revision": "1554772566ac7d3c75d646f20de3a673",
-    "url": "/config.php"
   },
   {
     "revision": "fe504bc44c2e5d0d3ec2659b10362ba2",
     "url": "/csv/data.csv"
   },
   {
+    "revision": "2a63356e2ac8c2a279b727bd41fe4619",
+    "url": "/config.php"
+  },
+  {
+    "revision": "1d7ada4e169680a092d3b8df307159bf",
+    "url": "/cache/times_weekend.json"
+  },
+  {
     "revision": "7fedcb5105d210c66d8fa5964ca5d537",
-    "url": "/cache/cache.php"
+    "url": "/cache/cache.json"
+  },
+  {
+    "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
+    "url": "/robots.txt"
   },
   {
     "revision": "64da2cb86f987f2494a7a8d419a002bc",
     "url": "/web_tablo/_____034.xml"
   },
   {
-    "revision": "5d8cf85ac5306f949444a6ef88c8cd2b",
-    "url": "/web_tablo/034__.xml"
-  },
-  {
     "revision": "a77941522e72f5c947c7c783b62d4eee",
     "url": "/web_tablo/034_.xml"
+  },
+  {
+    "revision": "5d8cf85ac5306f949444a6ef88c8cd2b",
+    "url": "/web_tablo/034__.xml"
   },
   {
     "revision": "84d530337d0ba624539a113c39adadf6",
@@ -76,12 +84,16 @@ self.__precacheManifest = [
     "url": "/web_tablo/034.xml"
   },
   {
-    "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
-    "url": "/robots.txt"
+    "revision": "a7d704990fe4627fc1806161c2b588ee",
+    "url": "/img/kluch.jpg"
   },
   {
     "revision": "cccf1750a53780f4d87347e56b40d130",
     "url": "/img/otpusk.jpg"
+  },
+  {
+    "revision": "77154e66875881c0e397fa3d40a0a36e",
+    "url": "/img/kluch.png"
   },
   {
     "revision": "d558e75e4cc65498b27416cec685f55e",

@@ -1,7 +1,7 @@
 <template>
   <div class="min-countdown">
     <span v-if="days > 0"> <b>{{ days | twoDigits }}</b> {{ declension(days, ['день', 'дня', 'днів']) }} </span>
-    <span> <b>{{ hours | twoDigits }}</b>  {{ declension(hours, ['година', 'години', 'годин']) }}</span>
+    <span v-if="hours"> <b>{{ hours | twoDigits }}</b>  {{ declension(hours, ['година', 'години', 'годин']) }}</span>
     <span>{{ minutes | twoDigits }} : {{ seconds | twoDigits }} </span>
   </div>
 </template>
